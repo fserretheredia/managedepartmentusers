@@ -1,0 +1,45 @@
+<div class="form-builder-content">
+  <h3 class="form-builder-content--title">{{ title }}</h3>
+  <form class="form-builder-content__form" [formGroup]="formBuilder">
+    <ng-container *ngFor="let f of form.form">
+      <div class="form-builder-content-form-item">
+        <label htmlFor="username">{{ f.label }}</label>
+        <input
+          *ngIf="f.typeInput === 'text'"
+          pInputText
+          id="username"
+          [attr.aria-describedby]="f.attributeName"
+          [type]="f.typeInput"
+          [formControlName]="f.attributeName"
+        />
+        <ng-container
+          *ngIf="
+            f.typeInput === 'dropdown' && f.dropdownOption as dropdownOption
+          "
+        >
+          <p-dropdown
+            [options]="f.dropdownOption"
+            [formControlName]="f.attributeName"
+            optionLabel="name"
+          ></p-dropdown>
+        </ng-container>
+        <small [id]="f.attributeName">{{ f.description }}</small>
+      </div>
+    </ng-container>
+    <div class="form-builder-content-form-buttons">
+      <p-button
+        class="form-builder-content-form-buttons--button"
+        styleClass="p-button-raised"
+        (onClick)="cancel()"
+        >Cancel</p-button
+      >
+      <p-button
+        class="form-builder-content-form-buttons--button"
+        styleClass="p-button-raised"
+        [disabled]="formBuilder.invalid"
+        (onClick)="save()"
+        >Save</p-button
+      >
+    </div>
+  </form>
+</div>

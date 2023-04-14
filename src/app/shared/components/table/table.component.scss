@@ -1,0 +1,12 @@
+.custom-table-row {
+  &__cell {
+    &--actions {
+      text-align: center !important;
+      span {
+        &:not(:last-child) {
+          margin-right: 8px !important;
+        }
+      }
+    }
+  }
+}

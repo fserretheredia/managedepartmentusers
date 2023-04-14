@@ -1,0 +1,33 @@
+<div class="manage-department-content">
+  <h2 class="manage-department-content--title">Management Departments</h2>
+  <div
+    *ngIf="departments$ | async as departments"
+    class="manage-department-content__table"
+  >
+    <div class="manage-department-content__table--button">
+      <p-button (onClick)="createDepartment()">Create Department</p-button>
+    </div>
+    <app-table
+      [dataTable]="departments"
+      (selectRow)="selectedTableRow($event)"
+      (selectAction)="selectAction($event)"
+    ></app-table>
+  </div>
+  <div
+    *ngIf="departmentUsers$ | async as departmentUsers"
+    class="manage-department-content__table"
+  >
+    <div class="manage-department-content__table--button">
+      <p-button
+        [disabled]="!(departmentsSelected$ | async) === true"
+        (onClick)="createUserDepartment()"
+        >Create User</p-button
+      >
+    </div>
+    <app-table
+      [dataTable]="departmentUsers"
+      (selectRow)="selectedTableRow($event)"
+      (selectAction)="selectAction($event)"
+    ></app-table>
+  </div>
+</div>

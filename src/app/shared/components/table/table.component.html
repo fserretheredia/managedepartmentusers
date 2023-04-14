@@ -1,0 +1,53 @@
+<div class="card">
+  <p-table
+    [value]="dataTable.data"
+    [dataKey]="dataTable.configTable.dataKey"
+    styleClass="p-datatable-gridlines"
+    selectionMode="single"
+    (onRowSelect)="
+      selectRowTable($event.data, dataTable.configTable.idTable, true)
+    "
+    (onRowUnselect)="
+      selectRowTable($event.data, dataTable.configTable.idTable, false)
+    "
+  >
+    <ng-template pTemplate="caption">
+      {{ dataTable.configTable.title }}
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th
+          *ngFor="
+            let headerNames of dataTable.configTable.headerNames;
+            trackBy: trackByTableItem
+          "
+        >
+          {{ headerNames }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+      <tr
+        class="custom-table-row"
+        [pSelectableRow]="rowData"
+        [pSelectableRowIndex]="rowIndex"
+      >
+        <td
+          class="custom-table-row__cell"
+          *ngFor="let attribute of dataTable.configTable.attribute"
+          [ngClass]="{'custom-table-row__cell--actions': attribute.actions.length !== 0}"
+        >
+          <span *ngIf="attribute.name">{{ rowData[attribute.name] }}</span>
+          <span
+            class="custom-table-row__cell--actions"
+            *ngFor="let action of attribute.actions; trackBy: trackByTableItem"
+            (click)="selectActionCell($event, action, rowData, dataTable.configTable.idTable)"
+          >
+            <i *ngIf="action === tableDataRowActions.remove" class="pi pi-trash" style="color: red"></i>
+            <i *ngIf="action === tableDataRowActions.edit" class="pi pi-pencil" style="color: black"></i>
+          </span>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

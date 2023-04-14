@@ -1,0 +1,30 @@
+.form-builder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__form {
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+.form-builder-content-form-item {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}
+
+.form-builder-content-form-buttons {
+    margin-top: 16px;
+    text-align: center;
+
+    &--button {
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+    }
+}

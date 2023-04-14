@@ -1,0 +1,7 @@
+<ng-container *ngIf="configForm$ | async as configForm">
+  <app-form-buider
+    title="Create new department"
+    [form]="configForm"
+    (saveForm)="save($event)"
+  ></app-form-buider>
+</ng-container>

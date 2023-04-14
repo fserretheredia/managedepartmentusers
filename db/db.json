@@ -1,0 +1,98 @@
+{
+  "departments": [
+    {
+      "id": 1,
+      "name": "Marketing",
+      "users": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Sales",
+      "users": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "testdepartment",
+      "users": [],
+      "id": 4
+    },
+    {
+      "name": "test9999",
+      "users": [],
+      "id": 5
+    },
+    {
+      "0": {
+        "id": 1,
+        "name": "Marketing",
+        "users": [
+          1,
+          2
+        ]
+      },
+      "1": {
+        "id": 2,
+        "name": "Sales",
+        "users": [
+          3,
+          4
+        ]
+      },
+      "2": {
+        "name": "testdepartment",
+        "users": [],
+        "id": 4
+      },
+      "3": {
+        "name": "test9999",
+        "users": [
+          5
+        ],
+        "id": 5
+      },
+      "4": {
+        "name": "Ingenieria",
+        "users": [
+          5
+        ],
+        "id": 6
+      },
+      "name": "Ingenieria",
+      "users": [],
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@company.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@company.com"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bobjohnson@company.com"
+    },
+    {
+      "id": 4,
+      "name": "Alice Brown",
+      "email": "alicebrown@company.com"
+    },
+    {
+      "name": "kira",
+      "email": "kira@kira.com",
+      "id": 5
+    }
+  ],
+  "items": []
+}
